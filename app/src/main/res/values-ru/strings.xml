@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Конвертер Валют</string>
+    <string name="titleApp">Конвертер Валют</string>
+    <string name="errorInternet">Нету соединения с сервером, проверьте интернет!</string>
+</resources>
