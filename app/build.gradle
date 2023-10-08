@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace 'by.vvv.currencyswap'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
 
@@ -15,7 +15,7 @@ android {
 
         applicationId "by.vvv.currencyswap"
         minSdk 26
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -92,4 +92,12 @@ dependencies {
     implementation 'com.google.accompanist:accompanist-insets:0.23.1'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.17.1'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.17.1'
+
+    //navGraph
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    def nav_version = "2.7.2"
+    def compose_version = "1.5.1"
+    //noinspection GradleDependency
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation "androidx.compose.material:material:${compose_version}"
 }

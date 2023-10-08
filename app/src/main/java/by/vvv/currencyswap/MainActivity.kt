@@ -2,41 +2,54 @@ package by.vvv.currencyswap
 
 import android.content.res.Resources
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
-import androidx.compose.material3.Surface
 import androidx.hilt.navigation.compose.hiltViewModel
-import by.vvv.currencyswap.presentation.main_screen.MainScreen
-import by.vvv.currencyswap.presentation.main_screen.MainScreenViewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import by.vvv.currencyswap.presentation.screen.HistoryScreen
+import by.vvv.currencyswap.presentation.screen.StatisticScreen
+import by.vvv.currencyswap.presentation.screen.main_screen.MainScreen
+import by.vvv.currencyswap.presentation.screen.main_screen.MainScreenViewModel
+import by.vvv.currencyswap.presentation.screen.main_screen.MyScreen
 import by.vvv.currencyswap.presentation.theme.CurrencySwapTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+@RequiresApi(34)
 @AndroidEntryPoint
 class MainActivity() : ComponentActivity() {
-    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             CurrencySwapTheme {
                 val viewModel: MainScreenViewModel = hiltViewModel()
-                Surface {
-                    MainScreen(
-                        state = viewModel.state,
-                        onEvent = viewModel::onEvent,
-                        getVideoUri(resources = resources, packageName = packageName)
-                    )
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = "MyScreen"
+                ) {
+                    composable("MyScreen") {
+                        MyScreen(resources = resources, packageName = packageName)
+                    }
+                    composable("Statistic") {
+                        StatisticScreen()
+                    }
+                    composable("History") {
+                        HistoryScreen()
+                    }
+
                 }
 
             }
         }
     }
-
-    private fun getVideoUri(resources: Resources, packageName: String): Uri {
+    fun getVideoUri(resources: Resources, packageName: String): Uri {
         val rawId = resources.getIdentifier("swap", "raw", packageName)
         val videoUri = "android.resource://$packageName/$rawId"
         return Uri.parse(videoUri)
     }
+
 }
