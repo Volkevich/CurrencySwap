@@ -10,9 +10,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import by.vvv.currencyswap.presentation.screen.HistoryScreen
+import by.vvv.currencyswap.presentation.screen.ExchangeRates
 import by.vvv.currencyswap.presentation.screen.StatisticScreen
-import by.vvv.currencyswap.presentation.screen.main_screen.MainScreen
 import by.vvv.currencyswap.presentation.screen.main_screen.MainScreenViewModel
 import by.vvv.currencyswap.presentation.screen.main_screen.MyScreen
 import by.vvv.currencyswap.presentation.theme.CurrencySwapTheme
@@ -35,10 +34,11 @@ class MainActivity() : ComponentActivity() {
                         MyScreen(resources = resources, packageName = packageName)
                     }
                     composable("Statistic") {
+
                         StatisticScreen()
                     }
                     composable("History") {
-                        HistoryScreen()
+                        ExchangeRates()
                     }
 
                 }

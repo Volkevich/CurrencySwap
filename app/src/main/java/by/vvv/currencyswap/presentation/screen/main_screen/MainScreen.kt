@@ -1,5 +1,7 @@
 package by.vvv.currencyswap.presentation.screen.main_screen
 
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
@@ -11,6 +13,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,7 +29,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
@@ -53,6 +58,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
@@ -73,7 +79,11 @@ import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.google.android.exoplayer2.ui.StyledPlayerView
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
+import kotlin.time.ExperimentalTime
 
 @RequiresApi(34)
 @SuppressLint("OpaqueUnitKey", "UnusedMaterial3ScaffoldPaddingParameter")
@@ -115,6 +125,7 @@ fun MainScreen(
     var shouldBottomSheetShow by remember { mutableStateOf(false) }
 
     if (shouldBottomSheetShow) {
+
         ModalBottomSheet(
             sheetState = sheetState,
             onDismissRequest = { shouldBottomSheetShow = false },
@@ -239,12 +250,12 @@ fun MainScreen(
             Box(
                 modifier = Modifier
                     .padding(start = 40.dp)
-                    .clip(CircleShape)
+                    .clip(RoundedCornerShape(16.dp))
                     .clickable { onEvent(MainScreenEvent.SwapIconClicked) }
                     .background(color = MaterialTheme.colorScheme.background)
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.sync),
+                    painter = painterResource(R.drawable.swaaap),
                     contentDescription = "Swap Currency",
                     modifier = Modifier
                         .padding(8.dp)
@@ -336,6 +347,8 @@ private fun Context.buildPlayerView(exoPlayer: ExoPlayer) =
         useController = false
         resizeMode = AspectRatioFrameLayout.RESIZE_MODE_ZOOM
     }
+
+
 
 
 @RequiresApi(Build.VERSION_CODES.Q)
