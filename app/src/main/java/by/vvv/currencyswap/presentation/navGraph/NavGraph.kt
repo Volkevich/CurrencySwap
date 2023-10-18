@@ -34,6 +34,7 @@ fun NavGraph(
         }
 
         composable("Statistic") {
+
             StatisticScreen()
         }
         composable("ExchangeRates") {
