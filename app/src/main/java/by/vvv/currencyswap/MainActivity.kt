@@ -3,7 +3,6 @@ package by.vvv.currencyswap
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
@@ -13,7 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import by.vvv.currencyswap.presentation.navGraph.botton.button_navigations.BottomItems
 import by.vvv.currencyswap.presentation.screen.ExchangeRates
-import by.vvv.currencyswap.presentation.screen.StatisticScreen
+import by.vvv.currencyswap.presentation.screen.NewsScreen
 import by.vvv.currencyswap.presentation.screen.main_screen.MainScreenViewModel
 import by.vvv.currencyswap.presentation.screen.main_screen.MyScreen
 import by.vvv.currencyswap.presentation.theme.CurrencySwapTheme
@@ -38,7 +37,7 @@ class MainActivity() : ComponentActivity() {
                     }
                     composable(BottomItems.Statistic.route) {
 
-                        StatisticScreen()
+                        NewsScreen()
                     }
                     composable(BottomItems.HistoryScreen.route) {
                         ExchangeRates()

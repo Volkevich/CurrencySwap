@@ -9,7 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import by.vvv.currencyswap.presentation.screen.ExchangeRates
-import by.vvv.currencyswap.presentation.screen.StatisticScreen
+import by.vvv.currencyswap.presentation.screen.NewsScreen
 import by.vvv.currencyswap.presentation.screen.main_screen.MainScreen
 import by.vvv.currencyswap.presentation.screen.main_screen.MainScreenViewModel
 
@@ -33,9 +33,9 @@ fun NavGraph(
             )
         }
 
-        composable("Statistic") {
+        composable("NEWS") {
 
-            StatisticScreen()
+            NewsScreen()
         }
         composable("ExchangeRates") {
             ExchangeRates()
