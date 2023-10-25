@@ -32,9 +32,7 @@ fun NavGraph(
                 navController = navHostController
             )
         }
-
         composable("NEWS") {
-
             NewsScreen()
         }
         composable("ExchangeRates") {

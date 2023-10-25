@@ -137,7 +137,7 @@ fun MainScreen(
                 ) {
                     BottomSheetDefaults.DragHandle()
                     Text(
-                        text = "Select Currency",
+                        text = "Выберите валюту",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
                     )
