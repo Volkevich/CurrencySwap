@@ -11,7 +11,7 @@ ___
 #### Min sdk 26.
 ### Target sdk 34.
 ## Screen video recording of the Application:
-<img src="untitled.gif"/>
+<img src="record (1).gif"/>
 
 
 
