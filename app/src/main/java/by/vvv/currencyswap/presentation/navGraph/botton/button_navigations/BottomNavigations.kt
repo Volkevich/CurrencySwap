@@ -21,8 +21,8 @@ fun BottomNavigations(navController: NavController) {
 
     val listItemsScreen = listOf(
         BottomItems.MyScreen,
-        BottomItems.HistoryScreen,
-        BottomItems.Statistic
+        BottomItems.ExchangeScreen,
+        BottomItems.NewsScreen
     )
 
     BottomNavigation(backgroundColor = Color.Transparent, modifier = Modifier.padding(5.dp)) {

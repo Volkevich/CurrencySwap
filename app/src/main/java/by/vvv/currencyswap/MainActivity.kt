@@ -31,15 +31,16 @@ class MainActivity() : ComponentActivity() {
                     navController = navController,
                     startDestination = "MyScreen"
                 ) {
-                    //TODO CREATE SEALED CLASS WITH STRING NAMES
+                    //TODO MAIN SCREEN
                     composable(BottomItems.MyScreen.route) {
                         MyScreen(resources = resources, packageName = packageName)
                     }
-                    composable(BottomItems.Statistic.route) {
+                    //TODO MAIN SCREEN
+                    composable(BottomItems.NewsScreen.route) {
 
                         NewsScreen()
                     }
-                    composable(BottomItems.HistoryScreen.route) {
+                    composable(BottomItems.ExchangeScreen.route) {
                         ExchangeRates()
                     }
 
